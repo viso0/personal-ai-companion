@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PIHU AI</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;background:#080816;color:white;
+ font-family:Arial,sans-serif;display:flex;align-items:center;
+ justify-content:center;text-align:center;padding:20px;
+}
+.app{width:100%;max-width:420px}
+h1{letter-spacing:5px;color:#c6a5ff}
+.orb{
+ width:190px;height:190px;margin:45px auto;
+ border-radius:50%;
+ background:radial-gradient(circle at 35% 30%,#a8eaff,#7547e8 45%,#171044 75%);
+ box-shadow:0 0 55px #7547e899;
+}
+button{
+ border:1px solid #9470ff;background:#17132d;color:white;
+ padding:13px 22px;border-radius:25px;margin:8px;
+}
+button.active{background:#7045d8}
+.status{color:#aaa;margin:22px}
+#mic{width:75px;height:75px;border-radius:50%;font-size:27px}
+.note{font-size:12px;color:#888;margin-top:35px}
+</style>
+</head>
+<body>
+<div class="app">
+ <h1>PIHU AI</h1>
+ <p>Your Personal AI Assistant</p>
+ <div class="orb"></div>
+ <button class="active" id="personal">Personal Mode</button>
+ <button id="work">Work Mode</button>
+ <p class="status" id="status">Voice connection not connected</p>
+ <button id="mic">🎙</button>
+ <p>Tap to connect when voice service is ready.</p>
+ <p class="note">PIHU AI · Built with care</p>
+</div>
+<script>
+const personal=document.getElementById("personal");
+const work=document.getElementById("work");
+const status=document.getElementById("status");
+
+personal.onclick=()=>{
+ personal.classList.add("active");
+ work.classList.remove("active");
+ status.textContent="Personal Mode selected";
+};
+
+work.onclick=()=>{
+ work.classList.add("active");
+ personal.classList.remove("active");
+ status.textContent="Work Mode selected";
+};
+
+document.getElementById("mic").onclick=()=>{
+ status.textContent="Voice service is not connected yet.";
+};
+</script>
+</body>
+</html>
